@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+alexizotov:
+  fname: Alex
+  lname: Izotov
+  company: vba
+
+dimakomissar:
+  fname: Dima
+  lname: Komissar
+  company: vba
+
+billgates:
+  fname: Bill
+  lname: Gates
+  company: microsoft

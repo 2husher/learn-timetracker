@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+windows:
+  name: Windows 9
+  company: microsoft
+  default_rate: 110
+
+iphone:
+  name: IPhone 7
+  company: apple
+  default_rate: 65
