@@ -9,7 +9,10 @@
   %body
     #container
       %header
-        nav will be here
+        %nav
+          %ul
+            - nav_items.each do |nav_item|
+              = display_nav_item(nav_item[:controllername], nav_item[:displaytext], nav_item[:linkurl])
       %section#main
         %article
           %p#notice= notice
