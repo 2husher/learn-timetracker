@@ -3,7 +3,11 @@ class WorksController < ApplicationController
 
   # GET /works
   def index
-    @works = Work.all
+    if params[:days]
+      @works = Work.recentdays(params[:days]).order('datetimeperformed desc')
+    else
+      @works = Work.all.order('datetimeperformed desc')
+    end
   end
 
   # GET /works/1

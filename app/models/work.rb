@@ -20,4 +20,9 @@ class Work < ActiveRecord::Base
       errors.add(:datetimeperformed, "can't be in the future")
     end
   end
+
+  def self.recentdays(numdaysago)
+    since_date = Time.now - numdaysago.to_i.days
+    where('datetimeperformed > ?', since_date)
+  end
 end
