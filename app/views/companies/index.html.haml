@@ -1,19 +1,8 @@
-%h1 Listing companies
+%h1 Companies:index
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+%p Here are all of the companies:
 
+%ul
   - @companies.each do |company|
-    %tr
-      %td= company.name
-      %td= link_to 'Show', company
-      %td= link_to 'Edit', edit_company_path(company)
-      %td= link_to 'Destroy', company, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Company', new_company_path
+    %li
+      = link_to company.name, company

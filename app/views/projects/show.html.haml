@@ -1,15 +1,4 @@
-%p#notice= notice
+%h1= @project.name
 
-%p
-  %b Name:
-  = @project.name
-%p
-  %b Company:
-  = @project.company_id
-%p
-  %b Default rate:
-  = @project.default_rate
-
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path
+%p Company: #{@project.company.name}
+%p Default Rate: #{@project.default_rate}

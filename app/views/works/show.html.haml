@@ -1,18 +1,5 @@
-%p#notice= notice
+%h1= @work.datetimeperformed
 
-%p
-  %b Project:
-  = @work.project_id
-%p
-  %b User:
-  = @work.user_id
-%p
-  %b Datetimeperformed:
-  = @work.datetimeperformed
-%p
-  %b Hours:
-  = @work.hours
-
-= link_to 'Edit', edit_work_path(@work)
-\|
-= link_to 'Back', works_path
+%p User: #{@work.user.fname} #{@work.user.lname}
+%p Project: #{@work.project.name}
+%p Work: #{@work.hours}
