@@ -5,7 +5,8 @@ class Project < ActiveRecord::Base
 
   validates :name, length: { minimum: 5 }
   validates :company, presence: true
-  validates :default_rate, numericality: { only_integer: true, greater_than_or_equal: 50 }
+  validates :default_rate, numericality: { only_integer: true,
+                                           greater_than_or_equal: 50 }
 
   scope :lowdefaultrate, -> { where('default_rate < 100') }
 end

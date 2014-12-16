@@ -1,7 +1,7 @@
 %h1= @work.datetimeperformed
 
-%p User: #{@work.user.fname} #{@work.user.lname}
-%p Project: #{@work.project.name}
-%p Work: #{@work.hours}
+%p= "User: #{@work.user.fname} #{@work.user.lname}"
+%p= "Project: #{@work.project.name}"
+%p= "Hours: #{@work.hours}"
 
 %p= link_to 'All Works', works_path

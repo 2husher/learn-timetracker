@@ -1,6 +1,6 @@
 %h1= @project.name
 
-%p Company: #{@project.company.name}
-%p Default Rate: #{@project.default_rate}
+%p= "Company: #{@project.company.name}"
+%p= "Default Rate: #{@project.default_rate}"
 
 %p= link_to 'All Projects', projects_path
