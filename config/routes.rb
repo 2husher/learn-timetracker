@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   get 'recentworks/:days' => 'works#index'
 
+  get 'timetrackerprojects/:slug' => 'projects#show'
+
   resources :works
   resources :projects
-  resources :users
   resources :companies
 end

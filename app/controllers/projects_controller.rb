@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:edit, :update, :destroy]
 
   # GET /projects
   def index
@@ -8,6 +8,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    if params[:slug]
+      @project = Project.find_by(slug: params[:slug])
+    else
+      @project = Project.find(params[:id])
+    end
   end
 
   # GET /projects/new

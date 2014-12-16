@@ -4,8 +4,10 @@ windows:
   name: Windows 9
   company: microsoft
   default_rate: 110
+  slug: windows-9 
 
 iphone:
   name: IPhone 7
   company: apple
   default_rate: 65
+  slug: iphone-7
