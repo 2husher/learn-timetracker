@@ -9,3 +9,6 @@
     - @companies.each do |company|
       %tr
         %td= link_to company, company
+
+= content_for :aside do
+  = render 'sidebar'

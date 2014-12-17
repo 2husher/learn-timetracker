@@ -4,8 +4,6 @@
 %p= "Default Rate: #{@project.default_rate}"
 %p= "Slug: #{@project.slug}"
 
-%p= link_to 'All Projects', projects_path
-
 %table
   %tbody
     %tr
@@ -21,3 +19,6 @@
         %td= link_to work.project, work.project
         %td= work.datetimeperformed.strftime('%m/%d/%Y %H:%M')
         %td= work.hours
+
+= content_for :aside do
+  = render 'sidebar'        
