@@ -5,3 +5,19 @@
 %p= "Slug: #{@project.slug}"
 
 %p= link_to 'All Projects', projects_path
+
+%table
+  %tbody
+    %tr
+      %th View
+      %th User
+      %th Project
+      %th Date/Time
+      %th Hours
+    - @project.works.each do |work|
+      %tr
+        %td= link_to 'View', work
+        %td= work.user
+        %td= link_to work.project, work.project
+        %td= work.datetimeperformed.strftime('%m/%d/%Y %H:%M')
+        %td= work.hours

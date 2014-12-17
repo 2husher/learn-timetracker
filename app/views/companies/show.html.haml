@@ -1,3 +1,13 @@
 %h1= @company.name
 
 %p= link_to 'All Companies', companies_path
+
+%table
+  %tbody
+    %tr
+      %th Project
+      %th Company
+    - @company.projects.each do |project|
+      %tr
+        %td= link_to project, project
+        %td= link_to project.company, project.company
