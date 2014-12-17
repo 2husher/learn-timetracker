@@ -2,7 +2,12 @@
 
 %p Here are all of the projects:
 
-%ul
-  - @projects.each do |project|
-    %li
-      = link_to project.name, project
+%table
+  %tbody
+    %tr
+      %th Project
+      %th Company
+    - @projects.each do |project|
+      %tr
+        %td= link_to project, project
+        %td= link_to project.company, project.company

@@ -25,4 +25,8 @@ class Work < ActiveRecord::Base
     since_date = Time.now - numdaysago.to_i.days
     where('datetimeperformed > ?', since_date)
   end
+
+  def to_s
+    "#{user}: #{datetimeperformed.strftime('%m/%d/%Y %H:%M')} - #{hours} hours} "
+  end
 end
