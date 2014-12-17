@@ -12,13 +12,7 @@
       %th Project
       %th Date/Time
       %th Hours
-    - @project.works.each do |work|
-      %tr
-        %td= link_to 'View', work
-        %td= work.user
-        %td= link_to work.project, work.project
-        %td= work.datetimeperformed.strftime('%m/%d/%Y %H:%M')
-        %td= work.hours
+    = render partial: 'works/work', collection: @project.works
 
 = content_for :aside do
   = render 'sidebar'        
