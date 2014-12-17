@@ -2,7 +2,18 @@
 
 %p Here are all of the works:
 
-%ul
-  - @works.each do |work|
-    %li
-      = link_to work, work
+%table
+  %tbody
+    %tr
+      %th View
+      %th User
+      %th Project
+      %th Date/Time
+      %th Hours
+    - @works.each do |work|
+      %tr
+        %td= link_to 'View', work
+        %td= work.user
+        %td= link_to work.project, work.project
+        %td= work.datetimeperformed.strftime('%m/%d/%Y %H:%M')
+        %td= work.hours

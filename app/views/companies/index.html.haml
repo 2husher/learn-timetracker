@@ -2,7 +2,10 @@
 
 %p Here are all of the companies:
 
-%ul
-  - @companies.each do |company|
-    %li
-      = link_to company, company
+%table
+  %tbody
+    %tr
+      %th Company
+    - @companies.each do |company|
+      %tr
+        %td= link_to company, company
