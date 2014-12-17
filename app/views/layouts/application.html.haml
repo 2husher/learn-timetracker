@@ -1,4 +1,4 @@
-!!!
+!!! 5
 %html
   %head
     %title Timetracker
@@ -9,6 +9,8 @@
   %body
     #container
       %header
+        = link_to content_tag('canvas', 'Time Tracker', id: 'logocanvas'), root_path
+        = content_tag('canvas', 'Clock', id: 'clock', width: "300", height: "300")
         %nav
           %ul
             - nav_items.each do |nav_item|

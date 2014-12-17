@@ -1,0 +1,19 @@
+$canvas-clock-side: 150px;
+
+header{
+  background-color: #ddd;
+  padding: 2% 2% 1% 2%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  canvas#logocanvas{
+    width: 250px;
+    height: 70px;
+  }
+
+  canvas#clock{
+    width: $canvas-clock-side;
+    height: $canvas-clock-side;
+    float: right;
+  }
+}
