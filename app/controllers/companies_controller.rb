@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(params[:company].permit(:name))
 
     if @company.save
-      redirect_to @company, notice: 'Company created.'
+      redirect_to @company, notice: 'Company Created.'
     else
       render :new
     end

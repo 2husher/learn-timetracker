@@ -25,10 +25,10 @@ class WorksController < ApplicationController
 
   # POST /works
   def create
-    @work = Work.new(work_params)
+    @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
 
     if @work.save
-      redirect_to @work, notice: 'Work was successfully created.'
+      redirect_to @work, notice: 'Work Created.'
     else
       render :new
     end
@@ -36,7 +36,7 @@ class WorksController < ApplicationController
 
   # PATCH/PUT /works/1
   def update
-    if @work.update(work_params)
+    if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
       redirect_to @work, notice: 'Work was successfully updated.'
     else
       render :edit
@@ -53,10 +53,5 @@ class WorksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_work
       @work = Work.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def work_params
-      params.require(:work).permit(:project_id, :user_id, :datetimeperformed, :hours)
     end
 end

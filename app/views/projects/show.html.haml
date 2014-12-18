@@ -4,15 +4,18 @@
 %p= "Default Rate: #{@project.default_rate}"
 %p= "Slug: #{@project.slug}"
 
-%table
-  %tbody
-    %tr
-      %th View
-      %th User
-      %th Project
-      %th Date/Time
-      %th Hours
-    = render partial: 'works/work', collection: @project.works
+- if @project.works.size > 0
+  %table
+    %tbody
+      %tr
+        %th View
+        %th User
+        %th Project
+        %th Date/Time
+        %th Hours
+      = render partial: 'works/work', collection: @project.works
+- else
+  No works.
 
 = content_for :aside do
   = render 'sidebar'        

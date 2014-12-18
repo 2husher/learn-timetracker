@@ -26,10 +26,10 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(params[:project].permit(:name, :company_id, :default_rate, :slug))
 
     if @project.save
-      redirect_to @project, notice: 'Project was successfully created.'
+      redirect_to @project, notice: 'Project Created.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(project_params)
+    if @project.update(params[:project].permit(:name, :company_id, :default_rate, :slug))
       redirect_to @project, notice: 'Project was successfully updated.'
     else
       render :edit
@@ -54,10 +54,5 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:name, :company_id, :default_rate)
     end
 end

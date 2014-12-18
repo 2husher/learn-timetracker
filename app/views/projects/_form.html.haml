@@ -1,11 +1,11 @@
-= form_for @project do |f|
-  - if @project.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
-      %ul
-        - @project.errors.full_messages.each do |msg|
-          %li= msg
+- if @project.errors.any?
+  #error_explanation
+    %h2= "Please correct the following #{pluralize(@project.errors.count, "error")}:"
+    %ul
+      - @project.errors.full_messages.each do |msg|
+        %li= msg
 
+= form_for @project do |f|
   .field
     = f.label :name
     = f.text_field :name
