@@ -1,11 +1,14 @@
 %h1= @company.name
 
-%table
-  %tbody
-    %tr
-      %th Project
-      %th Company
-    = render partial: 'projects/project', collection: @company.projects
+- if @company.projects.size > 0
+  %table
+    %tbody
+      %tr
+        %th Project
+        %th Company
+      = render partial: 'projects/project', collection: @company.projects
+- else
+  No projects      
 
 = content_for :aside do
   = render 'sidebar'        

@@ -26,10 +26,10 @@ class CompaniesController < ApplicationController
 
   # POST /companies
   def create
-    @company = Company.new(company_params)
+    @company = Company.new(params[:company].permit(:name))
 
     if @company.save
-      redirect_to @company, notice: 'Company was successfully created.'
+      redirect_to @company, notice: 'Company created.'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
 
   # PATCH/PUT /companies/1
   def update
-    if @company.update(company_params)
+    if @company.update(params[:company].permit(:name))
       redirect_to @company, notice: 'Company was successfully updated.'
     else
       render :edit
@@ -54,10 +54,5 @@ class CompaniesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_company
       @company = Company.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def company_params
-      params.require(:company).permit(:name)
     end
 end

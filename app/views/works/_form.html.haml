@@ -8,15 +8,15 @@
 
   .field
     = f.label :project_id
-    = f.number_field :project_id
+    = f.collection_select(:project_id, Project.all, :id, :name, prompt: true)
   .field
     = f.label :user_id
-    = f.number_field :user_id
+    = f.collection_select(:user_id, User.all.order('lname, fname'), :id, :to_s, prompt: true)
   .field
-    = f.label :datetimeperformed
+    = f.label :datetimeperformed, 'Date/Time Performed'
     = f.datetime_select :datetimeperformed
   .field
     = f.label :hours
-    = f.text_field :hours
+    = f.select(:hours, [1,2,3,4,5,6,7,8], prompt: true)
   .actions
-    = f.submit 'Save'
+    = f.submit 'Create Work'

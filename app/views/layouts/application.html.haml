@@ -17,7 +17,8 @@
               = display_nav_item(nav_item[:controllername], nav_item[:displaytext], nav_item[:linkurl])
       %section#main
         %article
-          %p#notice= notice
+          -if flash[:notice] 
+            .flash.notice= flash[:notice]
           = yield
         %aside
           = yield :aside
