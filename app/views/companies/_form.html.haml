@@ -10,4 +10,4 @@
     = f.label :name
     = f.text_field :name
   .actions
-    = f.submit 'Create Company'
+    = f.submit @company.new_record? ? 'Create Company' : 'Update Company'

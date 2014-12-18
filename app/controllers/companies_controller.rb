@@ -38,7 +38,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   def update
     if @company.update(params[:company].permit(:name))
-      redirect_to @company, notice: 'Company was successfully updated.'
+      redirect_to @company, notice: 'Company Updated.'
     else
       render :edit
     end

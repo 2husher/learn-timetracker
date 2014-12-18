@@ -19,4 +19,4 @@
     = f.label :hours
     = f.select(:hours, [1,2,3,4,5,6,7,8], prompt: true)
   .actions
-    = f.submit 'Create Work'
+    = f.submit @work.new_record? ? 'Create Work' : 'Update Work'

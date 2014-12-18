@@ -1,5 +1,7 @@
 %h1= @work.datetimeperformed
 
+%p= link_to 'Edit Work', edit_work_path(@work)
+
 %p= "User: #{@work.user.fname} #{@work.user.lname}"
 %p= "Project: #{@work.project.name}"
 %p= "Hours: #{@work.hours}"

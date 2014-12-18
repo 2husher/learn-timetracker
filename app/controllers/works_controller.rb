@@ -37,7 +37,7 @@ class WorksController < ApplicationController
   # PATCH/PUT /works/1
   def update
     if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
-      redirect_to @work, notice: 'Work was successfully updated.'
+      redirect_to @work, notice: 'Work Updated.'
     else
       render :edit
     end

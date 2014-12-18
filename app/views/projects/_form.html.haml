@@ -19,4 +19,4 @@
     = f.label :company_id
     = f.collection_select(:company_id, Company.all, :id, :name, prompt: true)
   .actions
-    = f.submit 'Create Project'
+    = f.submit @project.new_record? ? 'Create Project' : 'Update Project'

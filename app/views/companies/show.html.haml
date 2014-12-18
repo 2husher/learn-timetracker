@@ -1,5 +1,7 @@
 %h1= @company.name
 
+%p= link_to 'Edit Company', edit_company_path(@company)
+
 - if @company.projects.size > 0
   %table
     %tbody

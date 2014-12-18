@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(params[:project].permit(:name, :company_id, :default_rate, :slug))
-      redirect_to @project, notice: 'Project was successfully updated.'
+      redirect_to @project, notice: 'Project Updated.'
     else
       render :edit
     end
