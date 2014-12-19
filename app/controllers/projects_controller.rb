@@ -47,6 +47,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(params[:project].permit(:name, :company_id, :default_rate, :slug))
+      Usermailer.projectupdated_email(@project).deliver
       redirect_to @project, notice: 'Project Updated.'
     else
       render :edit

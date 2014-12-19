@@ -12,9 +12,7 @@
         = link_to content_tag('canvas', 'Time Tracker', id: 'logocanvas'), root_path
         = content_tag('canvas', 'Clock', id: 'clock', width: "300", height: "300")
         %nav
-          %ul
-            - nav_items.each do |nav_item|
-              = render partial: 'shared/display_nav_items', locals: { nav_item: nav_item }
+          = render 'shared/display_nav_items'
       %section#main
         %article
           - [:notice, :alert].each do |level|

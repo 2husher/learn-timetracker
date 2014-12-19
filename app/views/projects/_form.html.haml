@@ -18,5 +18,8 @@
   .field
     = f.label :company_id
     = f.collection_select(:company_id, Company.all, :id, :name, prompt: true)
+  .field
+    = f.label :user_id
+    = f.collection_select(:user_id, User.all, :id, :to_s, prompt: true)
   .actions
     = f.submit @project.new_record? ? 'Create Project' : 'Update Project'

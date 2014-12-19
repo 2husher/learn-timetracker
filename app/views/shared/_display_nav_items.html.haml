@@ -1,4 +1,6 @@
 -# if class: nil, it has not to render. But it does.
 
-%li{:class => "#{controller_name == nav_item[:controllername] ? 'active' : ''}"}
-  #{link_to nav_item[:displaytext], nav_item[:linkurl]}
+%ul
+  - nav_items.each do |nav_item|
+    %li{:class => "#{controller_name == nav_item[:controllername] ? 'active' : ''}"}
+      #{link_to nav_item[:displaytext], nav_item[:linkurl]}
