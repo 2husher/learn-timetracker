@@ -5,9 +5,11 @@ windows:
   company: microsoft
   default_rate: 110
   slug: windows-9 
+  user: alexizotov
 
 iphone:
   name: IPhone 7
   company: apple
   default_rate: 65
   slug: iphone-7
+  user: alexizotov
