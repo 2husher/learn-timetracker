@@ -13,6 +13,14 @@ class ProjectsController < ApplicationController
     else
       @project = Project.find(params[:id])
     end
+    @work = Work.new
+    @work.project = @project
+
+    # @work = @project.works.new
+    respond_to do |format|
+      format.html
+      format.json { render json: @project.works}
+    end
   end
 
   # GET /projects/new

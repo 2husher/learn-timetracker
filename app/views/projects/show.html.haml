@@ -6,16 +6,20 @@
 %p= "Default Rate: #{@project.default_rate}"
 %p= "Slug: #{@project.slug}"
 
+.remoteform
+  %h2 Add Work
+  = render partial: 'works/form', locals: { doajax: true }
+
 - if @project.works.size > 0
   %table
     %tbody
-      %tr
+      %tr.headrow
         %th View
         %th User
         %th Project
         %th Date/Time
-        %th Hours
-      = render partial: 'works/work', collection: @project.works
+        %th Hours      
+      = render partial: "works/work", collection: @project.works
 - else
   No works.
 
