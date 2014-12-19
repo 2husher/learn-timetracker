@@ -14,13 +14,15 @@
         %nav
           %ul
             - nav_items.each do |nav_item|
-              = display_nav_item(nav_item[:controllername], nav_item[:displaytext], nav_item[:linkurl])
+              = render partial: 'shared/display_nav_items', locals: { nav_item: nav_item }
       %section#main
         %article
-          -if flash[:notice] 
-            .flash.notice= flash[:notice]
+          - [:notice, :alert].each do |level|
+            -if flash[level] 
+              .flash{:class=>level}= flash[level]
           = yield
         %aside
+          = render 'shared/user_logged_in'
           = yield :aside
       %footer
         Time Tracker is a <em>Sample Company</em> App

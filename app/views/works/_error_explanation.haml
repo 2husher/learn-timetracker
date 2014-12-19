@@ -1,0 +1,6 @@
+- if @work.errors.any?
+  #error_explanation
+    %h2= "Please correct the following #{pluralize(@work.errors.count, "error")}:"
+    %ul
+      - @work.errors.full_messages.each do |msg|
+        %li= msg

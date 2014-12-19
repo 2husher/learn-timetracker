@@ -1,0 +1,6 @@
+- if @work.errors.any?
+  $("#error_explanation").remove();
+  $('.remoteform h2').before("#{escape_javascript(render 'error_explanation')}");
+- else 
+  $("#error_explanation").remove();
+  $('tbody tr.headrow').after("#{escape_javascript(render partial: "works/work", locals: { work: @work })}");
