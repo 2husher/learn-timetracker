@@ -19,8 +19,4 @@ module ApplicationHelper
        }
     ]
   end
-
-  def display_nav_item(controllername, displaytext, linkurl)
-     raw("<li #{controller_name == controllername ? "class='active'" : ''}> #{link_to displaytext, linkurl}</li>")
-  end
 end
