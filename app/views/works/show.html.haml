@@ -1,10 +1,12 @@
 %h1= @work.datetimeperformed
 
-%p= link_to 'Edit Work', edit_work_path(@work)
+%p= "#{link_to 'Edit Work', edit_work_path(@work)}".html_safe
 
 %p= "User: #{@work.user.fname} #{@work.user.lname}"
 %p= "Project: #{@work.project.name}"
 %p= "Hours: #{@work.hours}"
+-if @work.doc
+  %p= "Document: #{link_to @work.doc, "/uploads/#{@work.doc}", target: '_blank'}".html_safe
 
 = content_for :aside do
   = render 'sidebar'

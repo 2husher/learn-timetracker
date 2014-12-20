@@ -2,7 +2,7 @@
 
 - doajax = false unless (defined? doajax)
 
-= form_for(@work, remote: doajax) do |f|
+= form_for(@work, remote: doajax, :html => { :multipart => true }) do |f|
   .field
     = f.label :project_id
     = f.collection_select(:project_id, Project.all, :id, :name, prompt: true)
@@ -15,5 +15,9 @@
   .field
     = f.label :hours
     = f.select(:hours, [1,2,3,4,5,6,7,8], prompt: true)
+  - if !doajax
+    .field
+      = label_tag :doc, 'Notes(optional)'
+      = file_field_tag :doc
   .actions
     = f.submit @work.new_record? ? 'Create Work' : 'Update Work'

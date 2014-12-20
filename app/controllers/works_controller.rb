@@ -12,6 +12,10 @@ class WorksController < ApplicationController
 
   # GET /works/1
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @work}
+    end
   end
 
   # GET /works/new
@@ -25,7 +29,11 @@ class WorksController < ApplicationController
 
   # POST /works
   def create
-    @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
+    @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
+    
+    if params[:doc]
+      upload_file_to_work(@work, params[:doc])
+    end
 
     respond_to do |format|
       if @work.save
@@ -41,7 +49,11 @@ class WorksController < ApplicationController
 
   # PATCH/PUT /works/1
   def update
-    if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours))
+    if params[:doc]
+      upload_file_to_work(@work, params[:doc])
+    end
+
+    if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
       redirect_to @work, notice: 'Work Updated.'
     else
       render :edit
@@ -58,5 +70,12 @@ class WorksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_work
       @work = Work.find(params[:id])
+    end
+
+    def upload_file_to_work(work, uploaded_io)
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+        work.doc = uploaded_io.original_filename
+      end
     end
 end
