@@ -1,12 +1,13 @@
 class WorksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   # GET /works
   def index
     if params[:days]
-      @works = Work.recentdays(params[:days]).order('datetimeperformed desc')
+      @works = Work.recentdays(params[:days]).order('datetimeperformed desc').paginate(page: params[:page])
     else
-      @works = Work.all.order('datetimeperformed desc')
+      @works = Work.all.order('datetimeperformed desc').paginate(page: params[:page])
     end
   end
 
@@ -29,8 +30,9 @@ class WorksController < ApplicationController
 
   # POST /works
   def create
-    @work = Work.new(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
-    
+    @work = Work.new(params[:work].permit(:project_id, :datetimeperformed, :hours, :doc))
+    @work.user = current_user
+
     if params[:doc]
       upload_file_to_work(@work, params[:doc])
     end
@@ -39,7 +41,7 @@ class WorksController < ApplicationController
       if @work.save
         Usermailer.workcreated_email(@work).deliver
         format.html { redirect_to @work, notice: 'Work Created.' }
-        format.js 
+        format.js
       else
         format.html { render :new }
         format.js
@@ -49,11 +51,13 @@ class WorksController < ApplicationController
 
   # PATCH/PUT /works/1
   def update
+    @work.user = current_user
+
     if params[:doc]
       upload_file_to_work(@work, params[:doc])
     end
 
-    if @work.update(params[:work].permit(:project_id, :user_id, :datetimeperformed, :hours, :doc))
+    if @work.update(params[:work].permit(:project_id, :datetimeperformed, :hours, :doc))
       redirect_to @work, notice: 'Work Updated.'
     else
       render :edit

@@ -4,6 +4,7 @@ gem 'haml-rails'
 gem 'html2haml'
 
 gem 'devise'
+gem 'will_paginate'
 
 gem 'rails', '4.1.8'
 gem 'sqlite3'

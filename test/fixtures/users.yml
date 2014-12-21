@@ -6,15 +6,20 @@ alexizotov:
   company: vba
   email: martinandrudy@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  admin: true
 
 dimakomissar:
   fname: Dima
   lname: Komissar
   company: vba
   email: dk@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  admin: false
 
 billgates:
   fname: Bill
   lname: Gates
   company: microsoft
   email: bg@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  admin: true
