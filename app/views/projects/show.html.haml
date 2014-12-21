@@ -19,10 +19,7 @@
         %th User
         %th Project
         %th Date/Time
-        %th Hours      
+        %th Hours
       = render partial: "works/work", collection: @project.works
 - else
   No works.
-
-= content_for :aside do
-  = render 'sidebar'        

@@ -16,11 +16,14 @@
       %section#main
         %article
           - [:notice, :alert].each do |level|
-            -if flash[level] 
+            -if flash[level]
               .flash{:class=>level}= flash[level]
           = yield
         %aside
           = render 'shared/user_logged_in'
-          = yield :aside
+          - if content_for?(:aside)
+            = yield :aside
+          - else
+            = sidebar
       %footer
         Time Tracker is a <em>Sample Company</em> App
