@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = Project.new(params[:project].permit(:name, :company_id, :default_rate, :slug))
+    @project = Project.new(params[:project].permit(:name, :company_id, :owner_id, :default_rate, :slug))
 
     if @project.save
       redirect_to @project, notice: 'Project Created.'
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(params[:project].permit(:name, :company_id, :default_rate, :slug))
+    if @project.update(params[:project].permit(:name, :company_id, :owner_id, :default_rate, :slug))
       Usermailer.projectupdated_email(@project).deliver
       redirect_to @project, notice: 'Project Updated.'
     else

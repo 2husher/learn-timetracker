@@ -19,6 +19,7 @@
             -if flash[level]
               .flash{:class=>level}= flash[level]
           = yield
+          = debug(params)
         %aside
           = render 'shared/user_logged_in'
           - if content_for?(:aside)

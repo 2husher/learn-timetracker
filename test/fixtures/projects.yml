@@ -4,12 +4,12 @@ windows:
   name: Windows 9
   company: microsoft
   default_rate: 110
-  slug: windows-9 
-  user: alexizotov
+  slug: windows-9
+  owner: alexizotov
 
 iphone:
   name: IPhone 7
   company: apple
   default_rate: 65
   slug: iphone-7
-  user: alexizotov
+  owner: alexizotov

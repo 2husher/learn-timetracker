@@ -4,15 +4,15 @@
     %meta{:content=>'text/html; charset=UTF-8',:'http-equiv'=>'Content-Type'}/
   %body
     %h1 Project Updated
-    %p 
+    %p
       Name: #{@project.name}
       %br/
       Slug: #{@project.slug}
       %br/
       Default Rate: #{@project.default_rate}
-      %br/ 
+      %br/
       Company: #{@project.company}
       %br/
-      User: #{@project.user}
-      %br/ 
+      User: #{@project.owner}
+      %br/
       Changed at:  #{@project.updated_at.strftime("%m/%d/%Y %I:%M %p")}
