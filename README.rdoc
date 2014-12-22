@@ -39,3 +39,5 @@ Besides standarts Rails parts Timetracker project has some features like:
 * collection select in forms
 
 * ajax for creating new work for the project
+
+* <tt>content_for</tt> and <tt>content_tag</tt>
