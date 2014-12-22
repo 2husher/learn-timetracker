@@ -2,14 +2,40 @@
 
 Besides standarts Rails parts Timetracker project has some features like:
 
-* Time Tracker logo written in Javascript
+* Time Tracker logo written in Javascript, using canvas
 
-* Clock written in Javascript
+* Clock written in Javascript, using canvas and code from JS tutorial
 
-* <tt>display_nav_item</tt> and <tt>nav_items</tt> helpers for generating nav menu
+* <tt>sidebar</tt> and <tt>nav_items</tt> helpers
 
 * Items for companies, projects, works and user are loaded with fixtures
 
-* Some scopes
+* Some scopes for works
 
 * Slug
+
+* Action Mailer, triggered on creating a work and updating projects
+
+* simple uploading files to server
+
+* original css from tutorial changed to scss
+
+* Devise for authentication users at projects and works
+
+* only admins can modify companies, realized by filter
+
+* exporting projects list to csv
+
+* render all companies at html, json or xml
+
+* <tt>to_s</tt> method for models
+
+* validation for models including custom
+
+* relationship between user as owner and project, different from default
+
+* choosing action button in forms
+
+* collection select in forms
+
+* ajax for creating new work for the project
