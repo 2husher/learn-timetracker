@@ -10,7 +10,6 @@
     #container
       %header
         = link_to content_tag('canvas', 'Time Tracker', id: 'logocanvas'), root_path
-        = content_tag('canvas', 'Clock', id: 'clock', width: "300", height: "300")
         %nav
           = render 'shared/display_nav_items'
       %section#main
@@ -19,8 +18,8 @@
             -if flash[level]
               .flash{:class=>level}= flash[level]
           = yield
-          = debug(params)
         %aside
+          = content_tag('canvas', 'Clock', id: 'clock', width: "300", height: "300")
           = render 'shared/user_logged_in'
           - if content_for?(:aside)
             = yield :aside
